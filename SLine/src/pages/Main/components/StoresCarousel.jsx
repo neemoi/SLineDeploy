@@ -13,7 +13,7 @@ const ChainsCarousel = () => {
 
     const fetchChainsData = async () => {
         try {
-            const response = await fetch('http://localhost:7036/Store/Chains');
+            const response = await fetch('http://localhost:7036/api/Store/Chains');
             const data = await response.json();
             setChains(data);
             setLoading(false);

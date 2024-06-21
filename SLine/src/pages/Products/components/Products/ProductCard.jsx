@@ -23,7 +23,7 @@ function ProductCard({ product }) {
         }
 
         try {
-            const response = await fetch(`http://localhost:7036/Profile/GetAllInfo?userId=${user.id}`);
+            const response = await fetch(`http://localhost:7036/api/Profile/GetAllInfo?userId=${user.id}`);
             if (response.ok) {
                 const data = await response.json();
                 setHasAddress(!!data.address);
@@ -62,7 +62,7 @@ function ProductCard({ product }) {
 
     const fetchStores = async () => {
         try {
-            const response = await fetch(`http://localhost:7036/Basket/AvailableStores/${product.productId}`);
+            const response = await fetch(`http://localhost:7036/api/Basket/AvailableStores/${product.productId}`);
             if (response.ok) {
                 const data = await response.json();
                 setStores(data);
@@ -77,7 +77,7 @@ function ProductCard({ product }) {
     useEffect(() => {
         const fetchPriceRange = async () => {
             try {
-                const response = await fetch(`http://localhost:7036/Catalog/Warehouse/${product.productId}`);
+                const response = await fetch(`http://localhost:7036/api/Catalog/Warehouse/${product.productId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setPriceRange({

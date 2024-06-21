@@ -16,7 +16,7 @@ const AdminUsers = () => {
     const usersPerPage = 10;
 
     useEffect(() => {
-        fetch('http://localhost:7036/AllInfoAboutUsers')
+        fetch('http://localhost:7036/api/AllInfoAboutUsers')
             .then(response => response.json())
             .then(data => {
                 setUsers(data);
@@ -30,7 +30,7 @@ const AdminUsers = () => {
         setSelectedUser(user);
         setIsModalOpen(true);
 
-        fetch(`http://localhost:7036/Order/GetOrders/${user.id}`)
+        fetch(`http://localhost:7036/api/Order/GetOrders/${user.id}`)
             .then(response => response.json())
             .then(data => setUserOrders(data))
             .catch(error => console.error('Error fetching orders:', error));

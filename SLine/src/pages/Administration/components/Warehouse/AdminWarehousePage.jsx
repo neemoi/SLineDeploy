@@ -43,7 +43,7 @@ function AdminWarehouses() {
     }, [navigate]);
 
     const fetchWarehouses = () => {
-        fetch('http://localhost:7036/GetAllWarehouses')
+        fetch('http://localhost:7036/api/GetAllWarehouses')
             .then(response => response.json())
             .then(data => {
                 setWarehouses(data);
@@ -53,7 +53,7 @@ function AdminWarehouses() {
     };
 
     const fetchStores = () => {
-        fetch('http://localhost:7036/GetAllWarehouses')
+        fetch('http://localhost:7036/api/GetAllWarehouses')
             .then(response => response.json())
             .then(data => {
                 const uniqueStores = [...new Set(data.map(item => item.storeId))];
@@ -72,7 +72,7 @@ function AdminWarehouses() {
     };
 
     const fetchProducts = () => {
-        fetch('http://localhost:7036/GetAllProducts')
+        fetch('http://localhost:7036/api/GetAllProducts')
             .then(response => response.json())
             .then(data => {
                 setProducts(data);
@@ -143,8 +143,8 @@ function AdminWarehouses() {
         if (!validateForm()) return;
 
         const url = currentWarehouse.warehouseId === 0
-            ? 'http://localhost:7036/AddWarehouse'
-            : 'http://localhost:7036/UpdateWarehouse';
+            ? 'http://localhost:7036/api/AddWarehouse'
+            : 'http://localhost:7036/api/UpdateWarehouse';
 
         const method = currentWarehouse.warehouseId === 0 ? 'POST' : 'PUT';
 
@@ -163,7 +163,7 @@ function AdminWarehouses() {
     };
 
     const handleDeleteWarehouse = (warehouseId) => {
-        fetch(`http://localhost:7036/DeleteWarehouse/${warehouseId}`, {
+        fetch(`http://localhost:7036/api/DeleteWarehouse/${warehouseId}`, {
             method: 'DELETE'
         })
         .then(response => response.json())

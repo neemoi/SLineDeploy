@@ -81,7 +81,7 @@ function YandexMapModal({ isOpen, onRequestClose, onOpenStoresModal, onAddressSa
     const handleSave = async () => {
         if (userId) {
             try {
-                const response = await fetch(`http://localhost:7036/Profile/SetAddres?userId=${userId}&address=${encodeURIComponent(address)}`, {
+                const response = await fetch(`http://localhost:7036/api/Profile/SetAddres?userId=${userId}&address=${encodeURIComponent(address)}`, {
                     method: 'PUT',
                 });
     

@@ -35,14 +35,14 @@ function AdminProduct() {
     }, []);
 
     const fetchProducts = () => {
-        fetch('http://localhost:7036/GetAllProducts')
+        fetch('http://localhost:7036/api/GetAllProducts')
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error when receiving products:', error));
     };
 
     const fetchCategories = () => {
-        fetch('http://localhost:7036/Catalog/Categories')
+        fetch('http://localhost:7036/api/Catalog/Categories')
             .then(response => response.json())
             .then(data => {
                 setCategories(data);
@@ -74,7 +74,7 @@ function AdminProduct() {
         };
 
         const method = currentProduct.productId ? 'PUT' : 'POST';
-        const url = currentProduct.productId ? 'http://localhost:7036/UpdateProduct' : 'http://localhost:7036/AddProduct';
+        const url = currentProduct.productId ? 'http://localhost:7036/api/UpdateProduct' : 'http://localhost:7036/api/AddProduct';
 
         fetch(url, {
             method,
@@ -97,7 +97,7 @@ function AdminProduct() {
 
     const deleteProduct = (productId) => {
         if (window.confirm('Вы уверены, что хотите удалить этот продукт?')) {
-            fetch(`http://localhost:7036/DeleteProduct/${productId}`, {
+            fetch(`http://localhost:7036/api/DeleteProduct/${productId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchProducts())

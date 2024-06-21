@@ -70,7 +70,7 @@ function ResetPassword() {
     }
 
     try {
-      const response = await fetch('http://localhost:7036/Authorization/reset-password', {
+      const response = await fetch('http://localhost:7036/api/Authorization/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

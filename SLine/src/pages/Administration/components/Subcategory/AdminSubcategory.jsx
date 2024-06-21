@@ -26,14 +26,14 @@ function AdminSubCategory() {
     }, [navigate]);
 
     const refreshSubCategories = () => {
-        fetch('http://localhost:7036/GetAllSubCategories')
+        fetch('http://localhost:7036/api/GetAllSubCategories')
             .then(response => response.json())
             .then(data => setSubCategories(data))
             .catch(error => console.error('Ошибка при получении подкатегорий:', error));
     };
 
     const refreshCategories = () => {
-        fetch('http://localhost:7036/GetAllCategories')
+        fetch('http://localhost:7036/api/GetAllCategories')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Ошибка при получении категорий:', error));
@@ -50,7 +50,7 @@ function AdminSubCategory() {
     };
 
     const handleSubmit = () => {
-        const url = currentSubCategory.subCategoryId ? 'http://localhost:7036/UpdateSubCategory' : 'http://localhost:7036/AddSubCategory';
+        const url = currentSubCategory.subCategoryId ? 'http://localhost:7036/api/UpdateSubCategory' : 'http://localhost:7036/api/AddSubCategory';
         const method = currentSubCategory.subCategoryId ? 'PUT' : 'POST';
 
         fetch(url, {
@@ -79,7 +79,7 @@ function AdminSubCategory() {
 
     const handleDelete = (subCategoryId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту подкатегорию?')) {
-            fetch(`http://localhost:7036/DeleteSubCategory/${subCategoryId}`, {
+            fetch(`http://localhost:7036/api/DeleteSubCategory/${subCategoryId}`, {
                 method: 'DELETE',
             })
                 .then(() => refreshSubCategories())

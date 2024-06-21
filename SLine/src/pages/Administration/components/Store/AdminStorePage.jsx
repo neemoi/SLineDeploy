@@ -36,7 +36,7 @@ function AdminStores() {
     }, [navigate]);
 
     const fetchStores = () => {
-        fetch('http://localhost:7036/GetAllStore')
+        fetch('http://localhost:7036/api/GetAllStore')
             .then(response => response.json())
             .then(data => {
                 setStores(data);
@@ -46,7 +46,7 @@ function AdminStores() {
     };
 
     const fetchChains = () => {
-        fetch('http://localhost:7036/GetAllChainOfStore')
+        fetch('http://localhost:7036/api/GetAllChainOfStore')
             .then(response => response.json())
             .then(data => {
                 setChains(data);
@@ -117,8 +117,8 @@ function AdminStores() {
         if (!validateForm()) return;
 
         const url = currentStore.storeId === 0
-            ? 'http://localhost:7036/AddStore'
-            : 'http://localhost:7036/UpdateStore';
+            ? 'http://localhost:7036/api/AddStore'
+            : 'http://localhost:7036/api/UpdateStore';
 
         const method = currentStore.storeId === 0 ? 'POST' : 'PUT';
 
@@ -137,7 +137,7 @@ function AdminStores() {
     };
 
     const handleDeleteStore = (storeId) => {
-        fetch(`http://localhost:7036/DeleteStore/${storeId}`, {
+        fetch(`http://localhost:7036/api/DeleteStore/${storeId}`, {
             method: 'DELETE'
         })
         .then(response => response.json())

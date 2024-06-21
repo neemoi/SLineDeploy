@@ -12,10 +12,10 @@ const Stores = () => {
 
     const fetchStoresData = async () => {
         try {
-            const storesResponse = await fetch('http://localhost:7036/Store/AllStores');
+            const storesResponse = await fetch('http://localhost:7036/api/Store/AllStores');
             const storesData = await storesResponse.json();
 
-            const chainsResponse = await fetch('http://localhost:7036/Store/Chains');
+            const chainsResponse = await fetch('http://localhost:7036/api/Store/Chains');
             const chainsData = await chainsResponse.json();
 
             setStores(storesData);

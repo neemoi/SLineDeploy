@@ -30,14 +30,14 @@ function AdminDeliveryOption() {
     }, [navigate]);
 
     const fetchDeliveryOptions = () => {
-        fetch('http://localhost:7036/GetAllDeliveryOption')
+        fetch('http://localhost:7036/api/GetAllDeliveryOption')
             .then(response => response.json())
             .then(data => setDeliveryOptions(data))
             .catch(error => console.error('Error when receiving delivery options:', error));
     };
 
     const fetchStores = () => {
-        fetch('http://localhost:7036/GetAllStore')
+        fetch('http://localhost:7036/api/GetAllStore')
             .then(response => response.json())
             .then(data => setStores(data))
             .catch(error => console.error('Error when receiving stores:', error));
@@ -96,7 +96,7 @@ function AdminDeliveryOption() {
             return;
         }
 
-        fetch('http://localhost:7036/AddDeliveryOption', {
+        fetch('http://localhost:7036/api/AddDeliveryOption', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ function AdminDeliveryOption() {
             return;
         }
 
-        const url = 'http://localhost:7036/UpdateDeliveryOption';
+        const url = 'http://localhost:7036/api/UpdateDeliveryOption';
         const payload = {
             deliveryId: currentOption.deliveryId,
             deliveryTime: currentOption.deliveryTime,
@@ -153,7 +153,7 @@ function AdminDeliveryOption() {
 
     const handleDelete = (optionId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту опцию доставки?')) {
-            fetch(`http://localhost:7036/DeleteDeliveryOption/${optionId}`, {
+            fetch(`http://localhost:7036/api/DeleteDeliveryOption/${optionId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchDeliveryOptions())

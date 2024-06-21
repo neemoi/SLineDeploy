@@ -18,24 +18,24 @@ services:
     build:
       context: .
       dockerfile: StoreLineAPI/Dockerfile
-    depends_on: 
+    depends_on:
       - db
       - proxy
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=StoreLine;Username=postgres;Password=admin"
     ports:
-      - "7036:8080"
+      - "8080:8080" 
     volumes:
       - /path/to/your/appdata/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - /path/to/your/appdata/ASP.NET/Https:/home/app/.aspnet/https:ro
 
   storelineclient:
-    build: 
+    build:
       context: ./SLine
-      dockerfile: Dockerfile 
+      dockerfile: Dockerfile
     ports:
-      - "5001:3000"
+      - "3000:3000"  
 
   proxy:
     image: nginx:mainline

@@ -25,7 +25,7 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=StoreLine;Username=postgres;Password=admin"
     ports:
-      - "8080:8080" 
+      - "8080:8080"
     volumes:
       - /path/to/your/appdata/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - /path/to/your/appdata/ASP.NET/Https:/home/app/.aspnet/https:ro
@@ -35,7 +35,7 @@ services:
       context: ./SLine
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"  
+      - "5001:3000"
 
   proxy:
     image: nginx:mainline

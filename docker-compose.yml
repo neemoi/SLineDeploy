@@ -18,7 +18,7 @@ services:
     build:
       context: .
       dockerfile: StoreLineAPI/Dockerfile
-    depends_on: 
+    depends_on:
       - db
     environment:
       ASPNETCORE_ENVIRONMENT: Development
@@ -30,9 +30,9 @@ services:
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
 
   storelineclient:
-    build: 
+    build:
       context: ./SLine
-      dockerfile: Dockerfile 
+      dockerfile: Dockerfile
     ports:
       - "5001:3000"
 

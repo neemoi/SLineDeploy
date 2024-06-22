@@ -23,7 +23,7 @@ function AdminCategory() {
     }, [navigate]);
 
     const refreshCategories = () => {
-        fetch('http://localhost:7036/api/GetAllCategories')
+        fetch('http://45.142.122.22/api/GetAllCategories')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
@@ -40,7 +40,7 @@ function AdminCategory() {
     };
 
     const handleSubmit = () => {
-        const url = currentCategory.categoryId ? `http://localhost:7036/api/UpdateCategory` : `http://localhost:7036/api/AddCategory`;
+        const url = currentCategory.categoryId ? `http://45.142.122.22/api/UpdateCategory` : `http://45.142.122.22/api/AddCategory`;
         const method = currentCategory.categoryId ? 'PUT' : 'POST';
 
         fetch(url, {
@@ -59,7 +59,7 @@ function AdminCategory() {
 
     const handleDelete = (categoryId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту категорию?')) {
-            fetch(`http://localhost:7036/api/DeleteCategory/${categoryId}`, {
+            fetch(`http://45.142.122.22/api/DeleteCategory/${categoryId}`, {
                 method: 'DELETE',
             })
                 .then(() => refreshCategories())

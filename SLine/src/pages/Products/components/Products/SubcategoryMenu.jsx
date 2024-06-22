@@ -12,7 +12,7 @@ function SubcategoryMenu({ onSearchTermChange }) {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://localhost:7036/api/Catalog/Categories');
+                const response = await fetch('http://45.142.122.22/api/Catalog/Categories');
                 const data = await response.json();
                 setCategories(data);
 

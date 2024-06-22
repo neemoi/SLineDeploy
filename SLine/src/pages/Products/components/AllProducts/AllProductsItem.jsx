@@ -17,7 +17,7 @@ function AllProductsItem() {
 
     const fetchAllProducts = async () => {
         try {
-            const response = await fetch('http://localhost:7036/api/Catalog/Products');
+            const response = await fetch('http://45.142.122.22/api/Catalog/Products');
             const productsData = await response.json();
             const decodedProducts = productsData.map(product => ({
                 ...product,

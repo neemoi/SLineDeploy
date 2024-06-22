@@ -7,7 +7,7 @@ function UserOrders() {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:7036/api/Order/GetOrders/${userId}`)
+        fetch(`http://45.142.122.22/api/Order/GetOrders/${userId}`)
             .then(response => response.json())
             .then(data => setOrders(data))
             .catch(error => console.error('Error fetching orders:', error));

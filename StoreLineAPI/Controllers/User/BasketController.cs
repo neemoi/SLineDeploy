@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.User
 {
     [ApiController]
-    [Route("/Basket")]
+    [Route("/api/Basket")]
     //[Authorize]
     public class BasketController : ControllerBase
     {

@@ -115,6 +115,7 @@ internal class Program
         builder.Services.AddScoped<IBasketService, BasketService>();
         builder.Services.AddScoped<IOrderService, OrderService>();
         builder.Services.AddScoped<IProfileService, ProfileService>();
+        builder.Services.AddScoped<IProductService, ProductService>();
         builder.Services.AddScoped<ICategoryService, CategoryService>();
         builder.Services.AddScoped<ISubCategoryService, SubCategoryService>();
         builder.Services.AddScoped<IDeliveryOptionService, DeliveryOptionService>();
@@ -131,6 +132,7 @@ internal class Program
         builder.Services.AddScoped<IOrderRepository, OrderRepository>();
         builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
         builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+        builder.Services.AddScoped<IProductRepository, ProductRepository>();
         builder.Services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
         builder.Services.AddScoped<IDeliveryOptionRepository, DeliveryOptionRepository>();
         builder.Services.AddScoped<IProductRepository, ProductRepository>();

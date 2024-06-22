@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.User
 {
     [ApiController]
-    [Route("/Authorization")]
+    [Route("/api/Authorization")]
     public class AuthorizationController : Controller
     {
         private readonly IAccountService _accountService;

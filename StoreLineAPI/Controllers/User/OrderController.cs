@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.User
 {
     [ApiController]
-    [Route("/Order")]
+    [Route("/api/Order")]
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;

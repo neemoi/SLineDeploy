@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("Admin/Delivery")]
+    [Route("/api/Admin/Delivery")]
     public class AdminDeliveryOptionsController : ControllerBase
     {
         private readonly IDeliveryOptionService _deliveryOptionService;

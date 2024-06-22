@@ -1,14 +1,11 @@
 ﻿using Application.DtoModels.Models.User.Profile;
-using Application.Services.Implementations.User;
 using Application.Services.Interfaces.IServices.User;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace StoreLineAPI.Controllers.User
 {
-    [Route("/Profile")]
+    [Route("/api/Profile")]
     [ApiController]
-    //[Authorize]
     public class ProfileController : ControllerBase
     {
 

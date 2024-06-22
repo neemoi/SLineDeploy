@@ -30,14 +30,14 @@ function AdminDeliveryOption() {
     }, [navigate]);
 
     const fetchDeliveryOptions = () => {
-        fetch('http://45.142.122.22/GetAllDeliveryOption')
+        fetch('http://45.142.122.22/api/GetAllDeliveryOption')
             .then(response => response.json())
             .then(data => setDeliveryOptions(data))
             .catch(error => console.error('Error when receiving delivery options:', error));
     };
 
     const fetchStores = () => {
-        fetch('http://45.142.122.22/GetAllStore')
+        fetch('http://45.142.122.22/api/GetAllStore')
             .then(response => response.json())
             .then(data => setStores(data))
             .catch(error => console.error('Error when receiving stores:', error));
@@ -96,7 +96,7 @@ function AdminDeliveryOption() {
             return;
         }
 
-        fetch('http://45.142.122.22/AddDeliveryOption', {
+        fetch('http://45.142.122.22/api/AddDeliveryOption', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ function AdminDeliveryOption() {
             return;
         }
 
-        const url = 'http://45.142.122.22/UpdateDeliveryOption';
+        const url = 'http://45.142.122.22/api/UpdateDeliveryOption';
         const payload = {
             deliveryId: currentOption.deliveryId,
             deliveryTime: currentOption.deliveryTime,
@@ -153,7 +153,7 @@ function AdminDeliveryOption() {
 
     const handleDelete = (optionId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту опцию доставки?')) {
-            fetch(`http://45.142.122.22/DeleteDeliveryOption/${optionId}`, {
+            fetch(`http://45.142.122.22/api/DeleteDeliveryOption/${optionId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchDeliveryOptions())

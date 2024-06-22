@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("Admin/Warehouse")]
+    [Route("/api/Admin/Warehouse")]
     public class AdminWarehouseController : ControllerBase
     {
         private readonly IWarehouseService _warehouseService;

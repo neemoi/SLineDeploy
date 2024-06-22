@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("Admin/User")]
+    [Route("/api/Admin/User")]
     public class AdminUserController : ControllerBase
     {
         private readonly IUserService _userService;

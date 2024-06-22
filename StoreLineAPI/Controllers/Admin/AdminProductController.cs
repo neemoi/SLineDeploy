@@ -3,7 +3,7 @@ using Application.Services.Interfaces.IServices.Admin;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("Admin/Product")]
+[Route("/api/Admin/Product")]
 public class AdminProductController : ControllerBase
 {
     private readonly IProductService _productService;

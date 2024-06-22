@@ -1,13 +1,10 @@
 ﻿using Application.Services.Interfaces.IServices.User;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Persistance;
 
 namespace StoreLineAPI.Controllers.User
 {
     [ApiController]
-    [Route("/Catalog")]
-    //[Authorize]
+    [Route("/api/Catalog")]
     public class CatalogController : ControllerBase
     {
         private readonly ICatalogService _catalogService;

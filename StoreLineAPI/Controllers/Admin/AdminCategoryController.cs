@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("Admin/Category")]
+    [Route("/api/Admin/Category")]
     public class AdminCategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;

@@ -3,7 +3,7 @@ using Application.Services.Interfaces.IServices.Admin;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("Admin/SubCategory")]
+[Route("/api/Admin/SubCategory")]
 public class AdminSubCategoryController : ControllerBase
 {
     private readonly ISubCategoryService _subcategoryService;

@@ -1,12 +1,10 @@
 ﻿using Application.Services.Interfaces.IServices.User;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace StoreLineAPI.Controllers.User
 {
     [ApiController]
-    [Route("/Store")]
-    //[Authorize]
+    [Route("/api/Store")]
     public class InformationAboutStoresController : ControllerBase
     {
         private readonly IInformationAboutStoreService _storeService;

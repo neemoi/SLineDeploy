@@ -36,7 +36,7 @@ function ChainsOfStoresPage() {
     }, [navigate]);
 
     const fetchChains = () => {
-        fetch('http://45.142.122.22/api/GetAllChainOfStore')
+        fetch('http://45.142.122.22/GetAllChainOfStore')
             .then(response => response.json())
             .then(data => {
                 setChains(data);
@@ -104,8 +104,8 @@ function ChainsOfStoresPage() {
         if (!validateForm()) return;
 
         const url = currentChain.chainId === 0
-            ? 'http://45.142.122.22/api/AddChainOfStore'
-            : 'http://45.142.122.22/api/UpdateChainOfStore';
+            ? 'http://45.142.122.22/AddChainOfStore'
+            : 'http://45.142.122.22/UpdateChainOfStore';
 
         const method = currentChain.chainId === 0 ? 'POST' : 'PUT';
 
@@ -125,7 +125,7 @@ function ChainsOfStoresPage() {
 
     const handleDeleteChain = (chainId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту сеть магазинов?')) {
-            fetch(`http://45.142.122.22/api/DeleteChainOfStore/${chainId}`, {
+            fetch(`http://45.142.122.22/DeleteChainOfStore/${chainId}`, {
                 method: 'DELETE'
             })
             .then(response => response.json())

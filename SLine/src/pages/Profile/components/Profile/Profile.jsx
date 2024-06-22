@@ -34,7 +34,7 @@ function UserProfile() {
             const user = JSON.parse(localStorage.getItem('user'));
             const userId = user.id;
 
-            const response = await fetch(`http://45.142.122.22/api/Profile/GetAllInfo?userId=${userId}`, {
+            const response = await fetch(`http://45.142.122.22/Profile/GetAllInfo?userId=${userId}`, {
                 headers: {
                     'Authorization': `Bearer ${user.token}`,
                 },
@@ -121,7 +121,7 @@ function UserProfile() {
                     ...(currentPassword && newPassword && { currentPassword, newPassword }),
                 };
 
-                const response = await fetch(`http://45.142.122.22/api/Profile/Edit?userId=${userId}`, {
+                const response = await fetch(`http://45.142.122.22/Profile/Edit?userId=${userId}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

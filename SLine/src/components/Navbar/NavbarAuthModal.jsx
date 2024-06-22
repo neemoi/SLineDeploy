@@ -104,7 +104,7 @@ function AuthModal({ show, handleClose }) {
     }
 
     try {
-      const response = await fetch('http://45.142.122.22/api/Authorization/forgot-password', {
+      const response = await fetch('http://45.142.122.22/Authorization/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ function AuthModal({ show, handleClose }) {
             <form
               className="mt-4 text-center"
               onSubmit={(e) =>
-                handleSubmit(e, 'http://45.142.122.22/api/Authorization/Login', 'POST', {
+                handleSubmit(e, 'http://45.142.122.22/Authorization/Login', 'POST', {
                   email: formData.loginEmail,
                   password: formData.loginPassword,
                 })
@@ -183,7 +183,7 @@ function AuthModal({ show, handleClose }) {
               onSubmit={(e) =>
                 handleSubmit(
                   e,
-                  'http://45.142.122.22/api/Authorization/Register',
+                  'http://45.142.122.22/Authorization/Register',
                   'POST',
                   {
                     userName: formData.registerUserName,

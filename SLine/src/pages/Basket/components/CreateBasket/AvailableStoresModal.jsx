@@ -22,7 +22,7 @@ function AvailableStoresModal({ isModalOpen, closeModal, stores }) {
         }
 
         try {
-            const response = await fetch(`http://45.142.122.22/api/Profile/GetAllInfo?userId=${user.id}`, {
+            const response = await fetch(`http://45.142.122.22/Profile/GetAllInfo?userId=${user.id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ function AvailableStoresModal({ isModalOpen, closeModal, stores }) {
 
     const fetchDeliveryInfo = async (storeId) => {
         try {
-            const response = await fetch(`http://45.142.122.22/api/Order/Delivery/${storeId}`, {
+            const response = await fetch(`http://45.142.122.22/Order/Delivery/${storeId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ function AvailableStoresModal({ isModalOpen, closeModal, stores }) {
         };
 
         try {
-            const response = await fetch('http://45.142.122.22/api/Basket/AddProduct', {
+            const response = await fetch('http://45.142.122.22/Basket/AddProduct', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

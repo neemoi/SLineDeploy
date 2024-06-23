@@ -26,14 +26,14 @@ function AdminSubCategory() {
     }, [navigate]);
 
     const refreshSubCategories = () => {
-        fetch('http://45.142.122.22/api/GetAllSubCategories')
+        fetch('https://sline.site/api/GetAllSubCategories')
             .then(response => response.json())
             .then(data => setSubCategories(data))
             .catch(error => console.error('Ошибка при получении подкатегорий:', error));
     };
 
     const refreshCategories = () => {
-        fetch('http://45.142.122.22/api/GetAllCategories')
+        fetch('https://sline.site/api/GetAllCategories')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Ошибка при получении категорий:', error));
@@ -50,7 +50,7 @@ function AdminSubCategory() {
     };
 
     const handleSubmit = () => {
-        const url = currentSubCategory.subCategoryId ? 'http://45.142.122.22/api/UpdateSubCategory' : 'http://45.142.122.22/api/AddSubCategory';
+        const url = currentSubCategory.subCategoryId ? 'https://sline.site/api/UpdateSubCategory' : 'https://sline.site/api/AddSubCategory';
         const method = currentSubCategory.subCategoryId ? 'PUT' : 'POST';
 
         fetch(url, {
@@ -79,7 +79,7 @@ function AdminSubCategory() {
 
     const handleDelete = (subCategoryId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту подкатегорию?')) {
-            fetch(`http://45.142.122.22/api/DeleteSubCategory/${subCategoryId}`, {
+            fetch(`https://sline.site/api/DeleteSubCategory/${subCategoryId}`, {
                 method: 'DELETE',
             })
                 .then(() => refreshSubCategories())

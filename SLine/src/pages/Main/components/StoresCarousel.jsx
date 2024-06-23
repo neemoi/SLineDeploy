@@ -13,7 +13,7 @@ const ChainsCarousel = () => {
 
     const fetchChainsData = async () => {
         try {
-            const response = await fetch('http://45.142.122.22/api/Store/Chains');
+            const response = await fetch('https://sline.site/api/Store/Chains');
             const data = await response.json();
             setChains(data);
             setLoading(false);

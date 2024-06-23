@@ -39,7 +39,7 @@ function OrderItem() {
 
     async function fetchOrders() {
         try {
-            const response = await fetch(`http://45.142.122.22/api/Order/GetOrders/${userId}`, {
+            const response = await fetch(`https://sline.site/api/Order/GetOrders/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ function OrderItem() {
     async function updateOrderStatus(orderId, statusId) {
         console.log(`Updating order ${orderId} to status ${statusId}`);
         try {
-            const response = await fetch(`http://45.142.122.22/api/Order/UpdateOrderStatus`, {
+            const response = await fetch(`https://sline.site/api/Order/UpdateOrderStatus`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ function OrderItem() {
         }
 
         try {
-            const response = await fetch(`http://45.142.122.22/api/Order/CancelOrder?orderId=${orderId}&userId=${userId}`, {
+            const response = await fetch(`https://sline.site/api/Order/CancelOrder?orderId=${orderId}&userId=${userId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

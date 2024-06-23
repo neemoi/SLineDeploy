@@ -20,7 +20,7 @@ function OrderModal({ isOpen, onClose, storeId, userId, groupedItems }) {
     useEffect(() => {
         const fetchDeliveryOptions = async () => {
             try {
-                const response = await fetch(`http://45.142.122.22/api/api/Order/Delivery/${storeId}`);
+                const response = await fetch(`https://sline.site/api/api/Order/Delivery/${storeId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setDeliveryOptions(data);
@@ -34,7 +34,7 @@ function OrderModal({ isOpen, onClose, storeId, userId, groupedItems }) {
 
         const fetchPaymentTypes = async () => {
             try {
-                const response = await fetch('http://45.142.122.22/api/Order/PaymentType');
+                const response = await fetch('https://sline.site/api/Order/PaymentType');
                 if (response.ok) {
                     const data = await response.json();
                     setPaymentTypes([...data]);
@@ -128,7 +128,7 @@ function OrderModal({ isOpen, onClose, storeId, userId, groupedItems }) {
         };
 
         try {
-            const response = await fetch('http://45.142.122.22/api/Order/Create', {
+            const response = await fetch('https://sline.site/api/Order/Create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

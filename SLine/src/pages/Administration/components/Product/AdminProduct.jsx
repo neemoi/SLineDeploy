@@ -35,14 +35,14 @@ function AdminProduct() {
     }, []);
 
     const fetchProducts = () => {
-        fetch('https://sline.site/api/GetAllProducts')
+        fetch('http://45.142.122.22/api/GetAllProducts')
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error when receiving products:', error));
     };
 
     const fetchCategories = () => {
-        fetch('https://sline.site/api/Catalog/Categories')
+        fetch('http://45.142.122.22/api/Catalog/Categories')
             .then(response => response.json())
             .then(data => {
                 setCategories(data);
@@ -74,7 +74,7 @@ function AdminProduct() {
         };
 
         const method = currentProduct.productId ? 'PUT' : 'POST';
-        const url = currentProduct.productId ? 'https://sline.site/api/UpdateProduct' : 'https://sline.site/api/AddProduct';
+        const url = currentProduct.productId ? 'http://45.142.122.22/api/UpdateProduct' : 'http://45.142.122.22/api/AddProduct';
 
         fetch(url, {
             method,
@@ -97,7 +97,7 @@ function AdminProduct() {
 
     const deleteProduct = (productId) => {
         if (window.confirm('Вы уверены, что хотите удалить этот продукт?')) {
-            fetch(`https://sline.site/api/DeleteProduct/${productId}`, {
+            fetch(`http://45.142.122.22/api/DeleteProduct/${productId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchProducts())

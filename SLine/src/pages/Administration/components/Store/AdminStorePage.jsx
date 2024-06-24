@@ -36,7 +36,7 @@ function AdminStores() {
     }, [navigate]);
 
     const fetchStores = () => {
-        fetch('https://sline.site/api/GetAllStore')
+        fetch('http://45.142.122.22/api/GetAllStore')
             .then(response => response.json())
             .then(data => {
                 setStores(data);
@@ -46,7 +46,7 @@ function AdminStores() {
     };
 
     const fetchChains = () => {
-        fetch('https://sline.site/api/GetAllChainOfStore')
+        fetch('http://45.142.122.22/api/GetAllChainOfStore')
             .then(response => response.json())
             .then(data => {
                 setChains(data);
@@ -117,8 +117,8 @@ function AdminStores() {
         if (!validateForm()) return;
 
         const url = currentStore.storeId === 0
-            ? 'https://sline.site/api/AddStore'
-            : 'https://sline.site/api/UpdateStore';
+            ? 'http://45.142.122.22/api/AddStore'
+            : 'http://45.142.122.22/api/UpdateStore';
 
         const method = currentStore.storeId === 0 ? 'POST' : 'PUT';
 
@@ -137,7 +137,7 @@ function AdminStores() {
     };
 
     const handleDeleteStore = (storeId) => {
-        fetch(`https://sline.site/api/DeleteStore/${storeId}`, {
+        fetch(`http://45.142.122.22/api/DeleteStore/${storeId}`, {
             method: 'DELETE'
         })
         .then(response => response.json())

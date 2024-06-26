@@ -37,13 +37,13 @@ internal class Program
 
         builder.Services.AddCors(options =>
         {
-            options.AddPolicy("AllowAllOrigins",
-                builder =>
-                {
-                    builder.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader();
-                });
+            options.AddPolicy("AllowSpecificOrigin",
+            builder =>
+            {
+                builder.WithOrigins("http://www.sline.site")
+                       .AllowAnyHeader()
+                       .AllowAnyMethod();
+            });
         });
 
         builder.Services.AddControllers();

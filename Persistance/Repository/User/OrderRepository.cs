@@ -101,44 +101,44 @@ namespace Persistance.Repository.User
 
                     await _storeLineContext.SaveChangesAsync();
 
-                    if (user.Email != null)
-                    {
-                        StringBuilder message = new StringBuilder();
-                        message.AppendLine($"<h1>Заказ номер #{order.OrderId}</h1>");
-                        message.AppendLine("<table border='1' cellpadding='10'>");
-                        message.AppendLine("<tr><th>Товар</th><th>Количество</th><th>Цена</th></tr>");
+                    // if (user.Email != null)
+                    // {
+                    //     StringBuilder message = new StringBuilder();
+                    //     message.AppendLine($"<h1>Заказ номер #{order.OrderId}</h1>");
+                    //     message.AppendLine("<table border='1' cellpadding='10'>");
+                    //     message.AppendLine("<tr><th>Товар</th><th>Количество</th><th>Цена</th></tr>");
 
-                        foreach (var orderItem in order.OrderItems)
-                        {
-                            message.AppendLine($"<tr><td>{orderItem.Product.ProductName}</td><td>{orderItem.Quantity} шт.</td><td>{orderItem.TotalPrice}р.</td></tr>");
-                        }
+                    //     foreach (var orderItem in order.OrderItems)
+                    //     {
+                    //         message.AppendLine($"<tr><td>{orderItem.Product.ProductName}</td><td>{orderItem.Quantity} шт.</td><td>{orderItem.TotalPrice}р.</td></tr>");
+                    //     }
 
-                        message.AppendLine("</table>");
+                    //     message.AppendLine("</table>");
 
-                        decimal totalPrice = order.OrderItems.Sum(item => item.TotalPrice ?? 0m);
-                        message.AppendLine($"<p><strong>Способ доставки:</strong> {order.Delivery.DeliveryType}</p>");
+                    //     decimal totalPrice = order.OrderItems.Sum(item => item.TotalPrice ?? 0m);
+                    //     message.AppendLine($"<p><strong>Способ доставки:</strong> {order.Delivery.DeliveryType}</p>");
 
-                        if (order.Delivery.DeliveryType == "Пункт выдачи")
-                        {
-                            message.AppendLine($"<p><strong>Адрес пункта выдачи:</strong> {order.Delivery.Store.City}, {order.Delivery.Store.Address}</p>");
-                        }
-                        else if (order.Delivery.DeliveryType == "Курьер")
-                        {
-                            message.AppendLine($"<p><strong>Адрес доставки:</strong> {order.Cart.User.Address}</p>");
-                            message.AppendLine($"<p><strong>Цена доставки:</strong> {order.Delivery.DeliveryPrice}р.</p>");
-                        }
+                    //     if (order.Delivery.DeliveryType == "Пункт выдачи")
+                    //     {
+                    //         message.AppendLine($"<p><strong>Адрес пункта выдачи:</strong> {order.Delivery.Store.City}, {order.Delivery.Store.Address}</p>");
+                    //     }
+                    //     else if (order.Delivery.DeliveryType == "Курьер")
+                    //     {
+                    //         message.AppendLine($"<p><strong>Адрес доставки:</strong> {order.Cart.User.Address}</p>");
+                    //         message.AppendLine($"<p><strong>Цена доставки:</strong> {order.Delivery.DeliveryPrice}р.</p>");
+                    //     }
 
-                        totalPrice += order.Delivery.DeliveryPrice ?? 0m; 
+                    //     totalPrice += order.Delivery.DeliveryPrice ?? 0m; 
 
-                        message.AppendLine($"<p><strong>Дата заказа:</strong> {order.OrderDate}</p>");
-                        message.AppendLine($"<p><strong>Общая стоимость заказа:</strong> {totalPrice}р.</p>");
+                    //     message.AppendLine($"<p><strong>Дата заказа:</strong> {order.OrderDate}</p>");
+                    //     message.AppendLine($"<p><strong>Общая стоимость заказа:</strong> {totalPrice}р.</p>");
 
-                        await _emailService.SendEmailAsync(user.Email, $"Заказ номер #{order.OrderId}", message.ToString());
-                    }
-                    else
-                    {
-                        throw new InvalidOperationException("User email is null or empty or invalid.");
-                    }
+                    //     await _emailService.SendEmailAsync(user.Email, $"Заказ номер #{order.OrderId}", message.ToString());
+                    // }
+                    // else
+                    // {
+                    //     throw new InvalidOperationException("User email is null or empty or invalid.");
+                    // }
 
                     return order;
                 }

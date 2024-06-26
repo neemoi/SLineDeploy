@@ -1,47 +1,47 @@
-  version: '3.8'
+version: '3.8'
 
-  services:
-    db:
-      image: postgres:latest
-      restart: always
-      environment:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: admin
-        POSTGRES_DB: StoreLine
-      ports:
-        - "5433:5432"
-      volumes:
-        - db_data:/var/lib/postgresql/data
-        - ./db-init:/docker-entrypoint-initdb.d
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: StoreLine
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d
 
-    storelineapi:
-      build:
-        context: .
-        dockerfile: StoreLineAPI/Dockerfile
-      depends_on:
-        - db
-      environment:
-        ASPNETCORE_ENVIRONMENT: Development
-        ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=StoreLine;Username=postgres;Password=admin"
-      ports:
-        - "8080:8080"
+  storelineapi:
+    build:
+      context: .
+      dockerfile: StoreLineAPI/Dockerfile
+    depends_on:
+      - db
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=StoreLine;Username=postgres;Password=admin"
+    ports:
+      - "8080:8080"
 
-    storelineclient:
-      build:
-        context: ./SLine
-        dockerfile: Dockerfile
-      ports:
-        - "3000:3000"
+  storelineclient:
+    build:
+      context: ./SLine
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
 
-    proxy:
-      image: nginx:mainline
-      depends_on:
-        - storelineapi
-        - storelineclient
-      volumes:
-        - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      ports:
-        - "80:80"
+  proxy:
+    image: nginx:mainline
+    depends_on:
+      - storelineapi
+      - storelineclient
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
 
-  volumes:
-    db_data:
+volumes:
+  db_data:

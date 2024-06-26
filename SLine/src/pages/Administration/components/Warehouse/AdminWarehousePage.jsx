@@ -43,7 +43,7 @@ function AdminWarehouses() {
     }, [navigate]);
 
     const fetchWarehouses = () => {
-        fetch('http://45.142.122.22/api/GetAllWarehouses')
+        fetch('http://http://109.107.189.127/api//api/GetAllWarehouses')
             .then(response => response.json())
             .then(data => {
                 setWarehouses(data);
@@ -53,7 +53,7 @@ function AdminWarehouses() {
     };
 
     const fetchStores = () => {
-        fetch('http://45.142.122.22/api/GetAllWarehouses')
+        fetch('http://http://109.107.189.127/api//api/GetAllWarehouses')
             .then(response => response.json())
             .then(data => {
                 const uniqueStores = [...new Set(data.map(item => item.storeId))];
@@ -72,7 +72,7 @@ function AdminWarehouses() {
     };
 
     const fetchProducts = () => {
-        fetch('http://45.142.122.22/api/GetAllProducts')
+        fetch('http://http://109.107.189.127/api//api/GetAllProducts')
             .then(response => response.json())
             .then(data => {
                 setProducts(data);
@@ -143,8 +143,8 @@ function AdminWarehouses() {
         if (!validateForm()) return;
 
         const url = currentWarehouse.warehouseId === 0
-            ? 'http://45.142.122.22/api/AddWarehouse'
-            : 'http://45.142.122.22/api/UpdateWarehouse';
+            ? 'http://http://109.107.189.127/api//api/AddWarehouse'
+            : 'http://http://109.107.189.127/api//api/UpdateWarehouse';
 
         const method = currentWarehouse.warehouseId === 0 ? 'POST' : 'PUT';
 
@@ -163,7 +163,7 @@ function AdminWarehouses() {
     };
 
     const handleDeleteWarehouse = (warehouseId) => {
-        fetch(`http://45.142.122.22/api/DeleteWarehouse/${warehouseId}`, {
+        fetch(`http://http://109.107.189.127/api//api/DeleteWarehouse/${warehouseId}`, {
             method: 'DELETE'
         })
         .then(response => response.json())

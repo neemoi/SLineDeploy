@@ -10,7 +10,7 @@ function CategoriesItem() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://45.142.122.22/api/Catalog/Categories');
+                const response = await fetch('http://http://109.107.189.127/api//api/Catalog/Categories');
                 const data = await response.json();
 
                 const categoriesWithUrls = data.map(category => ({

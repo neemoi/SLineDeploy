@@ -12,10 +12,10 @@ function ProductsContainer({ searchTerm }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let url = `http://45.142.122.22/api/Catalog/Subcategories/${subcategoryId}`;
+                let url = `http://http://109.107.189.127/api//api/Catalog/Subcategories/${subcategoryId}`;
                 
                 if (searchTerm) {
-                    url = `http://45.142.122.22/api/Catalog/Products/${encodeURIComponent(searchTerm)}`;
+                    url = `http://http://109.107.189.127/api//api/Catalog/Products/${encodeURIComponent(searchTerm)}`;
                 }
                 
                 const productsResponse = await fetch(url);
@@ -24,7 +24,7 @@ function ProductsContainer({ searchTerm }) {
                 if (productsData.length > 0) {
                     setSubcategoryName(productsData[0].subcategoryName);
 
-                    const categoryResponse = await fetch(`http://45.142.122.22/api/Catalog/Categories`);
+                    const categoryResponse = await fetch(`http://http://109.107.189.127/api//api/Catalog/Categories`);
                     const categoryData = await categoryResponse.json();
                     const category = categoryData.find(cat => cat.subcategories.some(subcat => subcat.subcategoryId === parseInt(subcategoryId)));
                     

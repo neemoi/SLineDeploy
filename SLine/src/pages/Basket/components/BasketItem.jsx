@@ -23,7 +23,7 @@ function BasketItem() {
         }
 
         try {
-            const response = await fetch(`http://sline.site/api/Basket/BasketItems?userId=${userId}`, {
+            const response = await fetch(`http://109.107.189.127/api/Basket/BasketItems?userId=${userId}`, {
                 headers: {
                     'Authorization': `Bearer ${user ? user.token : ''}`,
                     'Content-Type': 'application/json',

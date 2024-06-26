@@ -11,7 +11,7 @@ function SubcategoriesItem() {
     useEffect(() => {
         const fetchSubcategoriesAndCategoryName = async () => {
             try {
-                const subcategoriesResponse = await fetch(`http://http://109.107.189.127/api//api/Catalog/Categories/${categoryId}`);
+                const subcategoriesResponse = await fetch(`http://109.107.189.127/api/Catalog/Categories/${categoryId}`);
                 const subcategoriesData = await subcategoriesResponse.json();
 
                 const subcategoriesWithUrls = subcategoriesData.map(subcategory => ({
@@ -21,7 +21,7 @@ function SubcategoriesItem() {
 
                 setSubcategories(subcategoriesWithUrls);
 
-                const categoryResponse = await fetch(`http://http://109.107.189.127/api//api/Catalog/Categories`);
+                const categoryResponse = await fetch(`http://109.107.189.127/api/Catalog/Categories`);
                 const categoriesData = await categoryResponse.json();
 
                 const category = categoriesData.find(cat => cat.categoryId === subcategoriesData[0]?.categoryId);

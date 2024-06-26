@@ -23,7 +23,7 @@ function AdminCategory() {
     }, [navigate]);
 
     const refreshCategories = () => {
-        fetch('http://http://109.107.189.127/api//api/GetAllCategories')
+        fetch('http://109.107.189.127/api/GetAllCategories')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
@@ -40,7 +40,7 @@ function AdminCategory() {
     };
 
     const handleSubmit = () => {
-        const url = currentCategory.categoryId ? `http://http://109.107.189.127/api//api/UpdateCategory` : `http://http://109.107.189.127/api//api/AddCategory`;
+        const url = currentCategory.categoryId ? `http://109.107.189.127/api/UpdateCategory` : `http://109.107.189.127/api/AddCategory`;
         const method = currentCategory.categoryId ? 'PUT' : 'POST';
 
         fetch(url, {
@@ -59,7 +59,7 @@ function AdminCategory() {
 
     const handleDelete = (categoryId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту категорию?')) {
-            fetch(`http://http://109.107.189.127/api//api/DeleteCategory/${categoryId}`, {
+            fetch(`http://109.107.189.127/api/DeleteCategory/${categoryId}`, {
                 method: 'DELETE',
             })
                 .then(() => refreshCategories())

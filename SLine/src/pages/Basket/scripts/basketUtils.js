@@ -1,6 +1,6 @@
 export async function updateQuantityWithCheck(user, userId, storeId, productId, quantity, setNotification, showNotification, fetchBasketItems) {
     try {
-        const response = await fetch(`http://http://109.107.189.127/api//api/Catalog/Warehouse/${storeId}/${productId}`, {
+        const response = await fetch(`http://109.107.189.127/api/Catalog/Warehouse/${storeId}/${productId}`, {
             headers: {
                 'Authorization': `Bearer ${user.token}`,
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export async function updateQuantityWithCheck(user, userId, storeId, productId, 
                 quantity,
             };
 
-            const updateResponse = await fetch(`http://http://109.107.189.127/api//api/Basket/UpdateQuantity`, {
+            const updateResponse = await fetch(`http://109.107.189.127/api/Basket/UpdateQuantity`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export async function removeProduct(user, userId, groupedItems, storeId, product
             quantity: maxQuantity,
         };
 
-        const response = await fetch(`http://http://109.107.189.127/api//api/Basket/RemoveProduct`, {
+        const response = await fetch(`http://109.107.189.127/api/Basket/RemoveProduct`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ export async function removeBasket(userId, user, setNotification, showNotificati
     }
 
     try {
-        const response = await fetch(`http://http://109.107.189.127/api//api/Basket/RemoveBasket/${userId}`, {
+        const response = await fetch(`http://109.107.189.127/api/Basket/RemoveBasket/${userId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

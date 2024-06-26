@@ -35,14 +35,14 @@ function AdminProduct() {
     }, []);
 
     const fetchProducts = () => {
-        fetch('http://http://109.107.189.127/api//api/GetAllProducts')
+        fetch('http://109.107.189.127/api/GetAllProducts')
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error when receiving products:', error));
     };
 
     const fetchCategories = () => {
-        fetch('http://http://109.107.189.127/api//api/Catalog/Categories')
+        fetch('http://109.107.189.127/api/Catalog/Categories')
             .then(response => response.json())
             .then(data => {
                 setCategories(data);
@@ -74,7 +74,7 @@ function AdminProduct() {
         };
 
         const method = currentProduct.productId ? 'PUT' : 'POST';
-        const url = currentProduct.productId ? 'http://http://109.107.189.127/api//api/UpdateProduct' : 'http://http://109.107.189.127/api//api/AddProduct';
+        const url = currentProduct.productId ? 'http://109.107.189.127/api/UpdateProduct' : 'http://109.107.189.127/api/AddProduct';
 
         fetch(url, {
             method,
@@ -97,7 +97,7 @@ function AdminProduct() {
 
     const deleteProduct = (productId) => {
         if (window.confirm('Вы уверены, что хотите удалить этот продукт?')) {
-            fetch(`http://http://109.107.189.127/api//api/DeleteProduct/${productId}`, {
+            fetch(`http://109.107.189.127/api/DeleteProduct/${productId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchProducts())

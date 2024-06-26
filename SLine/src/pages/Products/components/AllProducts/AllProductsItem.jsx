@@ -17,7 +17,7 @@ function AllProductsItem() {
 
     const fetchAllProducts = async () => {
         try {
-            const response = await fetch('http://http://109.107.189.127/api//api/Catalog/Products');
+            const response = await fetch('http://109.107.189.127/api/Catalog/Products');
             const productsData = await response.json();
             const decodedProducts = productsData.map(product => ({
                 ...product,

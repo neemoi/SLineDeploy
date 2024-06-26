@@ -70,7 +70,7 @@ function ResetPassword() {
     }
 
     try {
-      const response = await fetch('http://http://109.107.189.127/api//api/Authorization/reset-password', {
+      const response = await fetch('http://109.107.189.127/api/Authorization/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

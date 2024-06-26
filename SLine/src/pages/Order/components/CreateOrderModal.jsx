@@ -20,7 +20,7 @@ function OrderModal({ isOpen, onClose, storeId, userId, groupedItems }) {
     useEffect(() => {
         const fetchDeliveryOptions = async () => {
             try {
-                const response = await fetch(`http://109.107.189.127/api/api/Order/Delivery/${storeId}`);
+                const response = await fetch(`http://109.107.189.127/api/Order/Delivery/${storeId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setDeliveryOptions(data);

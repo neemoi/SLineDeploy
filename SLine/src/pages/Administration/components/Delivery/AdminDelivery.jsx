@@ -30,14 +30,14 @@ function AdminDeliveryOption() {
     }, [navigate]);
 
     const fetchDeliveryOptions = () => {
-        fetch(' http://sline.site/api/GetAllDeliveryOption')
+        fetch(' http://sline.site/api/Admin/Delivery/GetAllDeliveryOption')
             .then(response => response.json())
             .then(data => setDeliveryOptions(data))
             .catch(error => console.error('Error when receiving delivery options:', error));
     };
 
     const fetchStores = () => {
-        fetch(' http://sline.site/api/GetAllStore')
+        fetch(' http://sline.site/api/Admin/Delivery/GetAllStore')
             .then(response => response.json())
             .then(data => setStores(data))
             .catch(error => console.error('Error when receiving stores:', error));
@@ -96,7 +96,7 @@ function AdminDeliveryOption() {
             return;
         }
 
-        fetch(' http://sline.site/api/AddDeliveryOption', {
+        fetch(' http://sline.site/api/Admin/Delivery/AddDeliveryOption', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ function AdminDeliveryOption() {
             return;
         }
 
-        const url = ' http://sline.site/api/UpdateDeliveryOption';
+        const url = ' http://sline.site/api/Admin/Delivery/UpdateDeliveryOption';
         const payload = {
             deliveryId: currentOption.deliveryId,
             deliveryTime: currentOption.deliveryTime,
@@ -153,7 +153,7 @@ function AdminDeliveryOption() {
 
     const handleDelete = (optionId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту опцию доставки?')) {
-            fetch(` http://sline.site/api/DeleteDeliveryOption/${optionId}`, {
+            fetch(` http://sline.site/api/Admin/Delivery/DeleteDeliveryOption/${optionId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchDeliveryOptions())

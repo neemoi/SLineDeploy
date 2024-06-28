@@ -36,7 +36,7 @@ function ChainsOfStoresPage() {
     }, [navigate]);
 
     const fetchChains = () => {
-        fetch(' http://sline.site/api/GetAllChainOfStore')
+        fetch(' http://sline.site/api/Admin/Store/GetAllChainOfStore')
             .then(response => response.json())
             .then(data => {
                 setChains(data);
@@ -104,8 +104,8 @@ function ChainsOfStoresPage() {
         if (!validateForm()) return;
 
         const url = currentChain.chainId === 0
-            ? ' http://sline.site/api/AddChainOfStore'
-            : ' http://sline.site/api/UpdateChainOfStore';
+            ? ' http://sline.site/api/Admin/Store/AddChainOfStore'
+            : ' http://sline.site/api/Admin/Store/UpdateChainOfStore';
 
         const method = currentChain.chainId === 0 ? 'POST' : 'PUT';
 
@@ -125,7 +125,7 @@ function ChainsOfStoresPage() {
 
     const handleDeleteChain = (chainId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту сеть магазинов?')) {
-            fetch(` http://sline.site/api/DeleteChainOfStore/${chainId}`, {
+            fetch(` http://sline.site/api/Admin/Store/DeleteChainOfStore/${chainId}`, {
                 method: 'DELETE'
             })
             .then(response => response.json())

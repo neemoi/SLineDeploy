@@ -74,7 +74,7 @@ function AdminProduct() {
         };
 
         const method = currentProduct.productId ? 'PUT' : 'POST';
-        const url = currentProduct.productId ? ' http://sline.site/api/UpdateProduct' : ' http://sline.site/api/AddProduct';
+        const url = currentProduct.productId ? ' http://sline.site/api/Admin/Product/UpdateProduct' : ' http://sline.site/api/Admin/Product/AddProduct';
 
         fetch(url, {
             method,
@@ -97,7 +97,7 @@ function AdminProduct() {
 
     const deleteProduct = (productId) => {
         if (window.confirm('Вы уверены, что хотите удалить этот продукт?')) {
-            fetch(` http://sline.site/api/DeleteProduct/${productId}`, {
+            fetch(` http://sline.site/api/Admin/Product/DeleteProduct/${productId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchProducts())

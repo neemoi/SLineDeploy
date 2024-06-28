@@ -23,7 +23,7 @@ function AdminCategory() {
     }, [navigate]);
 
     const refreshCategories = () => {
-        fetch(' http://sline.site/api/Admin/GetAllCategories')
+        fetch(' http://sline.site/api/Admin/Category/GetAllCategories')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
@@ -40,7 +40,7 @@ function AdminCategory() {
     };
 
     const handleSubmit = () => {
-        const url = currentCategory.categoryId ? ` http://sline.site/api/Admin/UpdateCategory` : ` http://sline.site/api/Admin/AddCategory`;
+        const url = currentCategory.categoryId ? ` http://sline.site/api/Admin/Category/UpdateCategory` : ` http://sline.site/api/Admin/Category/AddCategory`;
         const method = currentCategory.categoryId ? 'PUT' : 'POST';
 
         fetch(url, {
@@ -59,7 +59,7 @@ function AdminCategory() {
 
     const handleDelete = (categoryId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту категорию?')) {
-            fetch(` http://sline.site/api/Admin/DeleteCategory/${categoryId}`, {
+            fetch(` http://sline.site/api/Admin/Category/DeleteCategory/${categoryId}`, {
                 method: 'DELETE',
             })
                 .then(() => refreshCategories())

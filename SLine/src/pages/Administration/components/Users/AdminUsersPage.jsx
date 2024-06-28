@@ -16,7 +16,7 @@ const AdminUsers = () => {
     const usersPerPage = 10;
 
     useEffect(() => {
-        fetch(' http://sline.site/api/AllInfoAboutUsers')
+        fetch(' http://sline.site/api/Admin/User/AllInfoAboutUsers')
             .then(response => response.json())
             .then(data => {
                 setUsers(data);

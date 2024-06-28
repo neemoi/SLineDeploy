@@ -12,10 +12,10 @@ const Stores = () => {
 
     const fetchStoresData = async () => {
         try {
-            const storesResponse = await fetch('http://109.107.189.127/api/Store/AllStores');
+            const storesResponse = await fetch(' http://sline.site/api/Store/AllStores');
             const storesData = await storesResponse.json();
 
-            const chainsResponse = await fetch('http://109.107.189.127/api/Store/Chains');
+            const chainsResponse = await fetch(' http://sline.site/api/Store/Chains');
             const chainsData = await chainsResponse.json();
 
             setStores(storesData);

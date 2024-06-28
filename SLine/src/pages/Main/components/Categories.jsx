@@ -10,7 +10,7 @@ function Categories() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://109.107.189.127/api/Catalog/Categories');
+                const response = await fetch(' http://sline.site/api/Catalog/Categories');
                 const data = await response.json();
 
                 const categoriesWithUrls = data.map(category => ({

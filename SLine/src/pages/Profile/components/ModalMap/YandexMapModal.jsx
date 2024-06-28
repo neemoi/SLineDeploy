@@ -81,7 +81,7 @@ function YandexMapModal({ isOpen, onRequestClose, onOpenStoresModal, onAddressSa
     const handleSave = async () => {
         if (userId) {
             try {
-                const response = await fetch(`http://109.107.189.127/api/Profile/SetAddres?userId=${userId}&address=${encodeURIComponent(address)}`, {
+                const response = await fetch(` http://sline.site/api/Profile/SetAddres?userId=${userId}&address=${encodeURIComponent(address)}`, {
                     method: 'PUT',
                 });
     

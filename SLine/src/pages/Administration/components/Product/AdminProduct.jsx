@@ -35,14 +35,14 @@ function AdminProduct() {
     }, []);
 
     const fetchProducts = () => {
-        fetch(' http://sline.site/api/GetAllProducts')
+        fetch(' http://www.sline.site/api/GetAllProducts')
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error when receiving products:', error));
     };
 
     const fetchCategories = () => {
-        fetch(' http://sline.site/api/Catalog/Categories')
+        fetch(' http://www.sline.site/api/Catalog/Categories')
             .then(response => response.json())
             .then(data => {
                 setCategories(data);
@@ -74,7 +74,7 @@ function AdminProduct() {
         };
 
         const method = currentProduct.productId ? 'PUT' : 'POST';
-        const url = currentProduct.productId ? ' http://sline.site/api/Admin/Product/UpdateProduct' : ' http://sline.site/api/Admin/Product/AddProduct';
+        const url = currentProduct.productId ? ' http://www.sline.site/api/Admin/Product/UpdateProduct' : ' http://www.sline.site/api/Admin/Product/AddProduct';
 
         fetch(url, {
             method,
@@ -97,7 +97,7 @@ function AdminProduct() {
 
     const deleteProduct = (productId) => {
         if (window.confirm('Вы уверены, что хотите удалить этот продукт?')) {
-            fetch(` http://sline.site/api/Admin/Product/DeleteProduct/${productId}`, {
+            fetch(` http://www.sline.site/api/Admin/Product/DeleteProduct/${productId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchProducts())

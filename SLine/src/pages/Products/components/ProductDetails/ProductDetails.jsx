@@ -26,13 +26,13 @@ function ProductDetails() {
 
     const fetchProductData = async () => {
         try {
-            const response = await fetch(` http://sline.site/api/Catalog/Product/${productId}`);
+            const response = await fetch(` http://www.sline.site/api/Catalog/Product/${productId}`);
             const productData = await response.json();
 
             setProduct(productData);
             setProductName(productData.productName);
 
-            const categoryResponse = await fetch(` http://sline.site/api/Catalog/Categories`);
+            const categoryResponse = await fetch(` http://www.sline.site/api/Catalog/Categories`);
             const categoryData = await categoryResponse.json();
             const category = categoryData.find(cat => cat.subcategories.some(subcat => subcat.subcategoryId === parseInt(productData.subcategoryId)));
             
@@ -40,7 +40,7 @@ function ProductDetails() {
                 setCategoryName(category.categoryName);
             }
 
-            const priceResponse = await fetch(` http://sline.site/api/Catalog/Warehouse/${productId}`);
+            const priceResponse = await fetch(` http://www.sline.site/api/Catalog/Warehouse/${productId}`);
             const priceData = await priceResponse.json();
             setMinPrice(priceData.minPrice);
             setMaxPrice(priceData.maxPrice);
@@ -57,7 +57,7 @@ function ProductDetails() {
 
         if (userId) {
             try {
-                const response = await fetch(` http://sline.site/api/Profile/GetAllInfo?userId=${userId}`);
+                const response = await fetch(` http://www.sline.site/api/Profile/GetAllInfo?userId=${userId}`);
                 
                 if (response.ok) {
                     const data = await response.json();
@@ -91,7 +91,7 @@ function ProductDetails() {
    
     const fetchStores = async () => {
         try {
-            const response = await fetch(` http://sline.site/api/Basket/AvailableStores/${product.productId}`);
+            const response = await fetch(` http://www.sline.site/api/Basket/AvailableStores/${product.productId}`);
             if (response.ok) {
                 const data = await response.json();
                 setStores(data);

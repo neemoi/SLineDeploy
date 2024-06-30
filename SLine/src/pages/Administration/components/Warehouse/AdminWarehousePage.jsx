@@ -43,7 +43,7 @@ function AdminWarehouses() {
     }, [navigate]);
 
     const fetchWarehouses = () => {
-        fetch(' http://sline.site/api/Admin/Warehouse/GetAllWarehouses')
+        fetch(' http://www.sline.site/api/Admin/Warehouse/GetAllWarehouses')
             .then(response => response.json())
             .then(data => {
                 setWarehouses(data);
@@ -53,7 +53,7 @@ function AdminWarehouses() {
     };
 
     const fetchStores = () => {
-        fetch(' http://sline.site/api/Admin/Warehouse/GetAllWarehouses')
+        fetch(' http://www.sline.site/api/Admin/Warehouse/GetAllWarehouses')
             .then(response => response.json())
             .then(data => {
                 const uniqueStores = [...new Set(data.map(item => item.storeId))];
@@ -72,7 +72,7 @@ function AdminWarehouses() {
     };
 
     const fetchProducts = () => {
-        fetch(' http://sline.site/api/Admin/Warehouse/GetAllProducts')
+        fetch(' http://www.sline.site/api/Admin/Warehouse/GetAllProducts')
             .then(response => response.json())
             .then(data => {
                 setProducts(data);
@@ -143,8 +143,8 @@ function AdminWarehouses() {
         if (!validateForm()) return;
 
         const url = currentWarehouse.warehouseId === 0
-            ? ' http://sline.site/api/Admin/Warehouse/AddWarehouse'
-            : ' http://sline.site/api/Admin/Warehouse/UpdateWarehouse';
+            ? ' http://www.sline.site/api/Admin/Warehouse/AddWarehouse'
+            : ' http://www.sline.site/api/Admin/Warehouse/UpdateWarehouse';
 
         const method = currentWarehouse.warehouseId === 0 ? 'POST' : 'PUT';
 
@@ -163,7 +163,7 @@ function AdminWarehouses() {
     };
 
     const handleDeleteWarehouse = (warehouseId) => {
-        fetch(` http://sline.site/api/Admin/Warehouse/DeleteWarehouse/${warehouseId}`, {
+        fetch(` http://www.sline.site/api/Admin/Warehouse/DeleteWarehouse/${warehouseId}`, {
             method: 'DELETE'
         })
         .then(response => response.json())

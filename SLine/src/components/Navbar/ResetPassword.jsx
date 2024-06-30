@@ -70,7 +70,7 @@ function ResetPassword() {
     }
 
     try {
-      const response = await fetch(' http://sline.site/api/Authorization/reset-password', {
+      const response = await fetch(' http://www.sline.site/api/Authorization/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

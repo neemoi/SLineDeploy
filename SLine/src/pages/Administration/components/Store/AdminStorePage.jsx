@@ -36,7 +36,7 @@ function AdminStores() {
     }, [navigate]);
 
     const fetchStores = () => {
-        fetch(' http://sline.site/api/Admin/Store/GetAllStore')
+        fetch(' http://www.sline.site/api/Admin/Store/GetAllStore')
             .then(response => response.json())
             .then(data => {
                 setStores(data);
@@ -46,7 +46,7 @@ function AdminStores() {
     };
 
     const fetchChains = () => {
-        fetch(' http://sline.site/api/Admin/Store/GetAllChainOfStore')
+        fetch(' http://www.sline.site/api/Admin/Store/GetAllChainOfStore')
             .then(response => response.json())
             .then(data => {
                 setChains(data);
@@ -117,8 +117,8 @@ function AdminStores() {
         if (!validateForm()) return;
 
         const url = currentStore.storeId === 0
-            ? ' http://sline.site/api/Admin/Store/AddStore'
-            : ' http://sline.site/api/Admin/Store/UpdateStore';
+            ? ' http://www.sline.site/api/Admin/Store/AddStore'
+            : ' http://www.sline.site/api/Admin/Store/UpdateStore';
 
         const method = currentStore.storeId === 0 ? 'POST' : 'PUT';
 
@@ -137,7 +137,7 @@ function AdminStores() {
     };
 
     const handleDeleteStore = (storeId) => {
-        fetch(` http://sline.site/api/Admin/Store/DeleteStore/${storeId}`, {
+        fetch(` http://www.sline.site/api/Admin/Store/DeleteStore/${storeId}`, {
             method: 'DELETE'
         })
         .then(response => response.json())

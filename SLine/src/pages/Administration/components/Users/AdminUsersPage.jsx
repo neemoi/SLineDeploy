@@ -16,7 +16,7 @@ const AdminUsers = () => {
     const usersPerPage = 10;
 
     useEffect(() => {
-        fetch(' http://sline.site/api/Admin/User/AllInfoAboutUsers')
+        fetch(' http://www.sline.site/api/Admin/User/AllInfoAboutUsers')
             .then(response => response.json())
             .then(data => {
                 setUsers(data);
@@ -30,7 +30,7 @@ const AdminUsers = () => {
         setSelectedUser(user);
         setIsModalOpen(true);
 
-        fetch(` http://sline.site/api/Order/GetOrders/${user.id}`)
+        fetch(` http://www.sline.site/api/Order/GetOrders/${user.id}`)
             .then(response => response.json())
             .then(data => setUserOrders(data))
             .catch(error => console.error('Error fetching orders:', error));

@@ -17,7 +17,7 @@ function AllProductsItem() {
 
     const fetchAllProducts = async () => {
         try {
-            const response = await fetch(' http://sline.site/api/Catalog/Products');
+            const response = await fetch(' http://www.sline.site/api/Catalog/Products');
             const productsData = await response.json();
             const decodedProducts = productsData.map(product => ({
                 ...product,

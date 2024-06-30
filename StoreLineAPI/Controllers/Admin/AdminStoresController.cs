@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("/api/Admin/Store")]
+    [Route("api/Admin/Store")]
     public class AdminStoresController : ControllerBase
     {
         private readonly IStoreService _storeService;
@@ -17,7 +17,7 @@ namespace StoreLineAPI.Controllers.Admin
             _chainOfStoresService = chainOfStoresService;
         }
 
-        [HttpGet("/GetAllStore")]
+        [HttpGet("GetAllStore")]
         public async Task<IActionResult> GetAllStoreAsync()
         {
             try
@@ -27,11 +27,10 @@ namespace StoreLineAPI.Controllers.Admin
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
-
             }
         }
 
-        [HttpGet("/GetAllChainOfStore")]
+        [HttpGet("GetAllChainOfStore")]
         public async Task<IActionResult> GetAllChainOfStoreAsync()
         {
             try
@@ -41,11 +40,10 @@ namespace StoreLineAPI.Controllers.Admin
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
-
             }
         }
 
-        [HttpPost("/AddStore")]
+        [HttpPost("AddStore")]
         public async Task<IActionResult> AddStoreAsync([FromBody] StoreDTO storeDto)
         {
             try
@@ -55,11 +53,10 @@ namespace StoreLineAPI.Controllers.Admin
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
-
             }
         }
 
-        [HttpPost("/AddChainOfStore")]
+        [HttpPost("AddChainOfStore")]
         public async Task<IActionResult> AddChainOfStoreAsync([FromBody] ChainOfStoreDTO chainStoreDto)
         {
             try
@@ -69,11 +66,10 @@ namespace StoreLineAPI.Controllers.Admin
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
-
             }
         }
 
-        [HttpPut("/UpdateStore")]
+        [HttpPut("UpdateStore")]
         public async Task<IActionResult> UpdateStoreAsync([FromBody] StoreDTO storeDto)
         {
             try
@@ -86,7 +82,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpPut("/UpdateChainOfStore")]
+        [HttpPut("UpdateChainOfStore")]
         public async Task<IActionResult> UpdateChainOfStoreAsync([FromBody] ChainOfStoreDTO chainStoreDto)
         {
             try
@@ -99,7 +95,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpDelete("/DeleteStore/{storeId}")]
+        [HttpDelete("DeleteStore/{storeId}")]
         public async Task<IActionResult> DeleteStoreAsync(int storeId)
         {
             try
@@ -112,7 +108,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpDelete("/DeleteChainOfStore/{chainStoreId}")]
+        [HttpDelete("DeleteChainOfStore/{chainStoreId}")]
         public async Task<IActionResult> DeleteChainOfStoreAsync(int chainStoreId)
         {
             try

@@ -2,68 +2,69 @@
 using Application.Services.Interfaces.IServices.Admin;
 using Microsoft.AspNetCore.Mvc;
 
-[ApiController]
-[Route("/api/Admin/Product")]
-public class AdminProductController : ControllerBase
+namespace StoreLineAPI.Controllers.Admin
 {
-    private readonly IProductService _productService;
-
-    public AdminProductController(IProductService productService)
+    [ApiController]
+    [Route("api/Admin/Product")]
+    public class AdminProductController : ControllerBase
     {
-        _productService = productService;
-    }
+        private readonly IProductService _productService;
 
-    [HttpGet("/GetAllProducts")]
-    public async Task<IActionResult> GetAllProductsAsync()
-    {
-        try
+        public AdminProductController(IProductService productService)
         {
-            return Ok(await _productService.GetAllProductsAsync());
+            _productService = productService;
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
 
+        [HttpGet("GetAllProducts")]
+        public async Task<IActionResult> GetAllProductsAsync()
+        {
+            try
+            {
+                return Ok(await _productService.GetAllProductsAsync());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
-    }
 
-    [HttpPost("/AddProduct")]
-    public async Task<IActionResult> AddProductAsync([FromBody] ProductDTO productDto)
-    {
-        try
+        [HttpPost("AddProduct")]
+        public async Task<IActionResult> AddProductAsync([FromBody] ProductDTO productDto)
         {
-            return Ok(await _productService.AddProductAsync(productDto));
+            try
+            {
+                return Ok(await _productService.AddProductAsync(productDto));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
 
+        [HttpPut("UpdateProduct")]
+        public async Task<IActionResult> UpdateProductAsync([FromBody] ProductDTO productDto)
+        {
+            try
+            {
+                return Ok(await _productService.UpdateProductAsync(productDto));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
-    }
 
-    [HttpPut("/UpdateProduct")]
-    public async Task<IActionResult> UpdateProductAsync([FromBody] ProductDTO productDto)
-    {
-        try
+        [HttpDelete("DeleteProduct/{productId}")]
+        public async Task<IActionResult> DeleteProductAsync(int productId)
         {
-            return Ok(await _productService.UpdateProductAsync(productDto));
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
-        }
-    }
-
-    [HttpDelete("/DeleteProduct/{productId}")]
-    public async Task<IActionResult> DeleteProductAsync(int productId)
-    {
-        try
-        {
-            return Ok(await _productService.DeleteProductAsync(productId));
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Internal server error: {ex.Message}");
+            try
+            {
+                return Ok(await _productService.DeleteProductAsync(productId));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }

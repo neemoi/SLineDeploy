@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("/api/Admin/Delivery")]
+    [Route("api/Admin/Delivery")]
     public class AdminDeliveryOptionsController : ControllerBase
     {
         private readonly IDeliveryOptionService _deliveryOptionService;
@@ -18,7 +18,7 @@ namespace StoreLineAPI.Controllers.Admin
             _orderService = orderService;
         }
 
-        [HttpGet("/GetDeliveryType")]
+        [HttpGet("GetDeliveryType")]
         public async Task<IActionResult> GetDeliveryTypeAsync(int storeId)
         {
             try
@@ -32,7 +32,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpPost("/AddDeliveryOption")]
+        [HttpPost("AddDeliveryOption")]
         public async Task<IActionResult> AddDeliveryOptionAsync([FromBody] DeliveryOptionDTO deliveryOptionDto)
         {
             try
@@ -46,7 +46,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpPut("/UpdateDeliveryOption")]
+        [HttpPut("UpdateDeliveryOption")]
         public async Task<IActionResult> UpdateDeliveryOptionAsync([FromBody] DeliveryOptionDTO deliveryOptionDto)
         {
             try
@@ -59,7 +59,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpDelete("/DeleteDeliveryOption/{deliveryOptionId}")]
+        [HttpDelete("DeleteDeliveryOption/{deliveryOptionId}")]
         public async Task<IActionResult> DeleteDeliveryOptionAsync(int deliveryOptionId)
         {
             try

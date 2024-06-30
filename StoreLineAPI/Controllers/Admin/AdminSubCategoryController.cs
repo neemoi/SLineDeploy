@@ -3,7 +3,7 @@ using Application.Services.Interfaces.IServices.Admin;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("/api/Admin/SubCategory")]
+[Route("api/Admin/SubCategory")]
 public class AdminSubCategoryController : ControllerBase
 {
     private readonly ISubCategoryService _subcategoryService;
@@ -13,7 +13,7 @@ public class AdminSubCategoryController : ControllerBase
         _subcategoryService = subcategoryService;
     }
 
-    [HttpGet("/GetAllSubCategories")]
+    [HttpGet("GetAllSubCategories")]
     public async Task<IActionResult> GetAllSubCategoriesAsync()
     {
         try
@@ -23,11 +23,10 @@ public class AdminSubCategoryController : ControllerBase
         catch (Exception ex)
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
-
         }
     }
 
-    [HttpPost("/AddSubCategory")]
+    [HttpPost("AddSubCategory")]
     public async Task<IActionResult> AddSubCategoryAsync([FromBody] SubCategoryDTO subcategoryDto)
     {
         try
@@ -37,11 +36,10 @@ public class AdminSubCategoryController : ControllerBase
         catch (Exception ex)
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
-
         }
     }
 
-    [HttpPut("/UpdateSubCategory")]
+    [HttpPut("UpdateSubCategory")]
     public async Task<IActionResult> UpdateSubCategoryAsync([FromBody] SubCategoryDTO subcategoryDto)
     {
         try
@@ -54,7 +52,7 @@ public class AdminSubCategoryController : ControllerBase
         }
     }
 
-    [HttpDelete("/DeleteSubCategory/{subcategoryId}")]
+    [HttpDelete("DeleteSubCategory/{subcategoryId}")]
     public async Task<IActionResult> DeleteSubCategoryAsync(int subcategoryId)
     {
         try

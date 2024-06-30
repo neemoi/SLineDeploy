@@ -1,11 +1,12 @@
 ﻿using Application.DtoModels.Models.Admin;
 using Application.Services.Interfaces.IServices.Admin;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("/api/Admin/Warehouse")]
+    [Route("api/Admin/Warehouse")]
     public class AdminWarehouseController : ControllerBase
     {
         private readonly IWarehouseService _warehouseService;
@@ -15,40 +16,41 @@ namespace StoreLineAPI.Controllers.Admin
             _warehouseService = warehouseService;
         }
 
-        [HttpGet("/GetAllWarehouses")]
+        [HttpGet("GetAllWarehouses")]
         public async Task<IActionResult> GetAllWarehousesAsync()
         {
             try
             {
-                return Ok(await _warehouseService.GetAllWarehousesAsync());
+                var warehouses = await _warehouseService.GetAllWarehousesAsync();
+                return Ok(warehouses);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
-
             }
         }
 
-        [HttpPost("/AddWarehouse")]
+        [HttpPost("AddWarehouse")]
         public async Task<IActionResult> AddWarehouseAsync([FromBody] WarehouseDTO warehouseDTO)
         {
             try
             {
-                return Ok(await _warehouseService.AddWarehouseAsync(warehouseDTO));
+                var addedWarehouse = await _warehouseService.AddWarehouseAsync(warehouseDTO);
+                return Ok(addedWarehouse);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
-
             }
         }
 
-        [HttpPut("/UpdateWarehouse")]
+        [HttpPut("UpdateWarehouse")]
         public async Task<IActionResult> UpdateWarehouseAsync([FromBody] WarehouseDTO warehouseDTO)
         {
             try
             {
-                return Ok(await _warehouseService.UpdateWarehouseAsync(warehouseDTO));
+                var updatedWarehouse = await _warehouseService.UpdateWarehouseAsync(warehouseDTO);
+                return Ok(updatedWarehouse);
             }
             catch (Exception ex)
             {
@@ -56,12 +58,13 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpDelete("/DeleteWarehouse/{warehouseId}")]
+        [HttpDelete("DeleteWarehouse/{warehouseId}")]
         public async Task<IActionResult> DeleteWarehouseAsync(int warehouseId)
         {
             try
             {
-                return Ok(await _warehouseService.DeleteWarehouseAsync(warehouseId));
+                var result = await _warehouseService.DeleteWarehouseAsync(warehouseId);
+                return Ok(result);
             }
             catch (Exception ex)
             {

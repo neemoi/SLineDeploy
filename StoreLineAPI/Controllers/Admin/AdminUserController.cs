@@ -1,10 +1,11 @@
 ﻿using Application.Services.Interfaces.IServices.Admin;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("/api/Admin/User")]
+    [Route("api/Admin/User")]
     public class AdminUserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -14,7 +15,7 @@ namespace StoreLineAPI.Controllers.Admin
             _userService = userService;
         }
 
-        [HttpGet("/AllInfoAboutUsers")]
+        [HttpGet("AllInfoAboutUsers")]
         public async Task<IActionResult> GetAllInfoAboutUsersAsync()
         {
             try
@@ -24,7 +25,6 @@ namespace StoreLineAPI.Controllers.Admin
             catch (Exception ex)
             {
                 return StatusCode(500, $"Internal server error: {ex.Message}");
-
             }
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace StoreLineAPI.Controllers.Admin
 {
     [ApiController]
-    [Route("/api/Admin/Category")]
+    [Route("api/Admin/Category")]
     public class AdminCategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
@@ -15,7 +15,7 @@ namespace StoreLineAPI.Controllers.Admin
             _categoryService = categoryService;
         }
 
-        [HttpGet("/GetAllCategories")]
+        [HttpGet("GetAllCategories")]
         public async Task<IActionResult> GetAllCategoriesAsync()
         {
             try
@@ -29,7 +29,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpPost("/AddCategory")]
+        [HttpPost("AddCategory")]
         public async Task<IActionResult> AddCategoryAsync([FromBody] CategoryDTO categoryDto)
         {
             try
@@ -43,7 +43,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpPut("/UpdateCategory")]
+        [HttpPut("UpdateCategory")]
         public async Task<IActionResult> UpdateCategoryAsync([FromBody] CategoryDTO categoryDto)
         {
             try
@@ -56,7 +56,7 @@ namespace StoreLineAPI.Controllers.Admin
             }
         }
 
-        [HttpDelete("/DeleteCategory/{categoryId}")]
+        [HttpDelete("DeleteCategory/{categoryId}")]
         public async Task<IActionResult> DeleteCategoryAsync(int categoryId)
         {
             try

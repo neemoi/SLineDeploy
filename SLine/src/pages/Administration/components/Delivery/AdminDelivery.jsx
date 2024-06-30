@@ -30,14 +30,14 @@ function AdminDeliveryOption() {
     }, [navigate]);
 
     const fetchDeliveryOptions = () => {
-        fetch(' http://www.sline.site/api/Admin/Delivery/GetAllDeliveryOption')
+        fetch(' http://www.sline.site/api/Admin/Delivery/GetAllDeliveryOptionAsync')
             .then(response => response.json())
             .then(data => setDeliveryOptions(data))
             .catch(error => console.error('Error when receiving delivery options:', error));
     };
 
     const fetchStores = () => {
-        fetch(' http://www.sline.site/api/Admin/Delivery/GetAllStore')
+        fetch(' http://www.sline.site/api/Admin/Delivery/GetAllStoreAsync')
             .then(response => response.json())
             .then(data => setStores(data))
             .catch(error => console.error('Error when receiving stores:', error));
@@ -96,7 +96,7 @@ function AdminDeliveryOption() {
             return;
         }
 
-        fetch(' http://www.sline.site/api/Admin/Delivery/AddDeliveryOption', {
+        fetch(' http://www.sline.site/api/Admin/Delivery/AddDeliveryOptionAsync', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ function AdminDeliveryOption() {
             return;
         }
 
-        const url = ' http://www.sline.site/api/Admin/Delivery/UpdateDeliveryOption';
+        const url = ' http://www.sline.site/api/Admin/Delivery/UpdateDeliveryOptionAsync';
         const payload = {
             deliveryId: currentOption.deliveryId,
             deliveryTime: currentOption.deliveryTime,
@@ -153,7 +153,7 @@ function AdminDeliveryOption() {
 
     const handleDelete = (optionId) => {
         if (window.confirm('Вы уверены, что хотите удалить эту опцию доставки?')) {
-            fetch(` http://www.sline.site/api/Admin/Delivery/DeleteDeliveryOption/${optionId}`, {
+            fetch(` http://www.sline.site/api/Admin/Delivery/DeleteDeliveryOptionAsync/${optionId}`, {
                 method: 'DELETE',
             })
                 .then(() => fetchDeliveryOptions())
